@@ -4,10 +4,12 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
+      fx:id="vbox"
       fx:controller="ru.imesense.javameemulator.HelloController">
     <MenuBar>
         <Menu text="File">
-            <MenuItem text="Open..." />
+            <MenuItem text="Open..."
+                      onAction="#onOpenMenuItemClick" />
 
             <SeparatorMenuItem />
 
