@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 import java.io.File;
 
@@ -22,13 +23,15 @@ public class HelloController {
     @FXML
     protected void onOpenMenuItemClick() {
         var fileChooser = new FileChooser();
-        fileChooser.setTitle("Open Java ME application");
+        fileChooser.setTitle("Open Java ME midlet");
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
         fileChooser.getExtensionFilters().addAll(
-            new FileChooser.ExtensionFilter("All files", "*.*"),
-            new FileChooser.ExtensionFilter("JAR files", "*.jar")
+            new FileChooser.ExtensionFilter("Java ME midlets", "*.jar", "*.jad")
         );
 
-        var file = fileChooser.showOpenDialog(vbox.getScene().getWindow());
+        var selectedFile = fileChooser.showOpenDialog(new Stage());
+        if (selectedFile != null) {
+            welcomeText.setText(selectedFile.getName());
+        }
     }
 }
