@@ -34,4 +34,9 @@ public class HelloController {
             welcomeText.setText(selectedFile.getName());
         }
     }
+
+    @FXML
+    protected void onExitMenuItemClick() {
+        System.exit(0);
+    }
 }
